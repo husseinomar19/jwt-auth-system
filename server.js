@@ -8,9 +8,9 @@ app.use(express.json());
 app.use('/auth', authRoutes);
 
 // Protected route
-// app.get('/protected', verifyToken, (req, res) => {
-//     res.json({ message: 'Toegang verleend', user: req.user });
-// });
+app.get('/protected', verifyToken, (req, res) => {
+    res.json({ message: 'Toegang verleend', user: req.user });
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server draait op poort ${PORT}`));
